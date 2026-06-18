@@ -28,8 +28,8 @@ export interface TuitionOption {
 }
 
 export interface Course {
-  id: string;           // slug: 'hang-b1', 'hang-b2', etc.
-  badge: string;        // 'B1', 'B2', 'C', 'C1', 'D', 'D1', 'E', 'F'
+  id: string;           // slug: 'hang-a1', 'hang-b-tu-dong', etc.
+  badge: string;        // 'A1', 'A', 'B (TĐ)', 'B (SS)', 'C1', 'C', 'D'
   name: string;
   shortDesc: string;
   heroImage: string;
@@ -94,270 +94,417 @@ export const coursesPageData: CoursesPageData = {
   },
   categories: [
     { label: 'Tất cả', value: 'all' },
-    { label: 'Hạng B', value: 'B' },
-    { label: 'Hạng C', value: 'C' },
-    { label: 'Hạng D', value: 'D' },
-    { label: 'Hạng E & F', value: 'EF' },
+    { label: 'Xe máy (A, A1)', value: 'moto' },
+    { label: 'Hạng B (Ô tô)', value: 'B' },
+    { label: 'Hạng C (Xe tải)', value: 'C' },
+    { label: 'Hạng D (Xe khách)', value: 'D' },
   ],
   courses: [
-    // ──────────────── HẠNG B1 ────────────────
+    // ──────────────── HẠNG A1 ────────────────
     {
-      id: 'hang-b1',
-      badge: 'B1',
-      name: 'Khóa học lái xe hạng B1',
-      shortDesc: 'Dành cho xe số tự động dưới 9 chỗ – Lý tưởng cho người mới bắt đầu',
-      heroImage: 'https://sathachlaixebinhthuan.com/uploads/news/images/702_cr.png',
-      bannerColor: 'from-sky-600 to-blue-800',
+      id: 'hang-a1',
+      badge: 'A1',
+      name: 'Khóa học lái xe hạng A1',
+      shortDesc: 'Xe mô tô hai bánh dung tích dưới 125cm³ hoặc công suất điện ≤ 11kW',
+      heroImage: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&fit=crop',
+      bannerColor: '',
 
       reasons: {
-        title: 'Tại sao nên học hạng B1?',
-        subtitle: 'Hạng B1 là điểm khởi đầu hoàn hảo cho người mới học lái xe',
+        title: 'Tại sau nên học bằng A1?',
+        subtitle: 'Bằng lái xe máy phổ thông nhất, bắt buộc đối với tất cả người điều khiển xe máy trên 50cc',
         items: [
-          { icon: 'FaCar', title: 'Xe số tự động', desc: 'Điều khiển dễ dàng, phù hợp với đô thị hiện đại – Không cần học sang số' },
-          { icon: 'FaUserFriends', title: 'Dành cho mọi người', desc: 'Phù hợp cho cả nam và nữ, người lớn tuổi, không yêu cầu kinh nghiệm trước' },
-          { icon: 'FaMoneyBillWave', title: 'Chi phí hợp lý', desc: 'Học phí thấp nhất trong các hạng bằng, thời gian đào tạo ngắn' },
-          { icon: 'FaRoute', title: 'Sử dụng rộng rãi', desc: 'Lái được các xe phổ thông trong cuộc sống: xe gia đình, taxi công nghệ, giao hàng...' },
+          { icon: 'FaRoad', title: 'Sử dụng trọn đời', desc: 'Bằng lái xe hạng A1 có giá trị vô thời hạn, không cần phải thi lại hay gia hạn' },
+          { icon: 'FaShieldAlt', title: 'An toàn & Đúng luật', desc: 'Giúp bạn nắm chắc luật giao thông đường bộ, lái xe tự tin và an toàn hơn' },
+          { icon: 'FaTrophy', title: 'Thi dễ dàng', desc: 'Quy trình thi đơn giản với 200 câu lý thuyết và phần thi sa hình vòng số 8 quen thuộc' },
+          { icon: 'FaBriefcase', title: 'Cần thiết hàng ngày', desc: 'Giúp bạn di chuyển hợp pháp đi làm, đi học, tránh các khoản phạt hành chính' },
         ],
       },
 
       vehicles: [
-        { name: 'Xe sedan số tự động', description: 'Toyota Vios, Honda City, Hyundai Accent... ≤ 9 chỗ', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1469285994282-454cbe0f2e9d?q=80&w=400&fit=crop' },
-        { name: 'Xe SUV số tự động', description: 'Ford EcoSport, Kia Seltos, Hyundai Creta... ≤ 9 chỗ', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop' },
-        { name: 'Xe MPV số tự động', description: 'Mitsubishi Xpander, Toyota Innova... ≤ 9 chỗ', icon: 'FaBus', image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=400&fit=crop' },
+        { name: 'Xe máy dưới 125cc', description: 'Honda Vision, Wave Alpha, Yamaha Sirius... dung tích xi-lanh < 125cc', icon: 'FaMotorcycle', image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=400&fit=crop' },
+        { name: 'Xe máy điện', description: 'VinFast Feliz, Evo200... công suất động cơ điện ≤ 11kW', icon: 'FaMotorcycle', image: 'https://images.unsplash.com/photo-1620421680010-0766ff230392?q=80&w=400&fit=crop' },
+        { name: 'Xe mô tô ba bánh', description: 'Xe mô tô ba bánh dùng riêng cho người khuyết tật', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=400&fit=crop' },
       ],
 
       benefits: [
-        { icon: 'FaGraduationCap', title: 'Đào tạo bài bản', desc: 'Chương trình chuẩn Bộ GTVT, giảng viên kinh nghiệm 10+ năm' },
-        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Thi không đỗ được học lại hoàn toàn miễn phí đến khi đỗ' },
-        { icon: 'FaHeadset', title: 'Hỗ trợ 24/7', desc: 'Giải đáp thắc mắc, hỗ trợ lịch học linh hoạt theo nhu cầu' },
-        { icon: 'FaCertificate', title: 'Bằng chuẩn quốc gia', desc: 'Bằng lái do Sở GTVT cấp, có giá trị toàn quốc và quốc tế' },
-        { icon: 'FaShieldAlt', title: 'Xe tập đời mới', desc: 'Xe tập lái đời mới, trang bị đầy đủ thiết bị an toàn' },
-        { icon: 'FaPercent', title: 'Ưu đãi hấp dẫn', desc: 'Giảm 5% khi đăng ký nhóm từ 3 người, hỗ trợ trả góp 0%' },
+        { icon: 'FaGraduationCap', title: 'Mẹo thi đỗ cao', desc: 'Hướng dẫn mẹo nhớ nhanh 200 câu lý thuyết và thi thực hành vòng số 8 đạt tỷ lệ đỗ 99%' },
+        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Học viên chưa đạt được sắp xếp thi lại nhanh chóng và hỗ trợ ôn tập miễn phí' },
+        { icon: 'FaClock', title: 'Lịch học linh động', desc: 'Lớp học lý thuyết và tập xe thực hành diễn ra cả ngày thường và cuối tuần' },
+        { icon: 'FaCertificate', title: 'Bằng chuẩn Sở GTVT', desc: 'Phôi bằng do Sở Giao thông Vận tải cấp, tích hợp trên ứng dụng VNeID' },
+        { icon: 'FaShieldAlt', title: 'Sân tập chất lượng', desc: 'Sân tập rộng rãi, sơn vẽ đúng chuẩn sa hình sát hạch thực tế' },
+        { icon: 'FaHeadset', title: 'Hỗ trợ trọn gói', desc: 'Thu hồ sơ tận nơi, chụp ảnh thẻ, khám sức khỏe tại trung tâm' },
       ],
 
       curriculum: {
         theory: {
-          total: '136 giờ lý thuyết',
+          total: '8 giờ lý thuyết',
           items: [
-            'Luật Giao thông Đường bộ (56 giờ)',
-            'Kỹ thuật lái xe cơ bản (40 giờ)',
-            'Phòng tránh tai nạn giao thông (20 giờ)',
-            'Đạo đức người lái xe (12 giờ)',
-            'Quy trình khởi hành và dừng đỗ (8 giờ)',
+            'Luật giao thông đường bộ mới nhất',
+            'Hệ thống biển báo, vạch kẻ đường',
+            'Kỹ thuật giải sa hình nhanh',
+            'Quy tắc phòng tránh tai nạn khi đi xe máy',
           ],
         },
         practice: {
-          total: '420 km thực hành',
+          total: '4 giờ thực hành',
           items: [
-            'Điều khiển xe trong sân (80 km) – Sa hình 9 bài thi',
-            'Lái xe trên đường đô thị (200 km)',
-            'Lái xe đường trường, đường cao tốc (100 km)',
-            'Lái xe ban đêm (40 km)',
+            'Luyện đi vòng số 8 chuẩn sát hạch',
+            'Đi đường thẳng cản tầm nhìn',
+            'Đi đường quanh co ziczac',
+            'Đi đường mấp mô tránh chướng ngại vật',
           ],
         },
         schedule: [
-          { phase: 'Giai đoạn 1', duration: '1 tháng', content: ['Học lý thuyết Luật GTĐB', 'Ôn thi 600 câu lý thuyết', 'Thi sát hạch lý thuyết'] },
-          { phase: 'Giai đoạn 2', duration: '2-2.5 tháng', content: ['Học lái xe trong sân sa hình', 'Thực hành 9 bài thi sát hạch', 'Học lái xe đường trường'] },
-          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Ôn tập tổng hợp', 'Thi sát hạch thực hành', 'Nhận bằng lái xe'] },
+          { phase: 'Giai đoạn 1', duration: '1-2 tuần', content: ['Nộp hồ sơ trực tuyến hoặc trực tiếp', 'Học lý thuyết và thi thử phần mềm', 'Tập thực hành trên sa hình'] },
+          { phase: 'Giai đoạn 2', duration: '1 ngày', content: ['Làm bài thi lý thuyết trên máy tính (21/25 câu đạt)', 'Thi thực hành lái xe trên sân cảm biến (80/100 điểm đạt)'] },
+          { phase: 'Giai đoạn 3', duration: '1.5 tuần', content: ['Sở GTVT cấp bằng thẻ PET', 'Tự động đồng bộ lên tài khoản VNeID'] },
         ],
       },
 
       documents: [
-        { name: 'CMND/CCCD hoặc Hộ chiếu còn hạn', note: 'Bản photo và bản gốc để đối chiếu' },
-        { name: '4 ảnh thẻ 3×4 (nền trắng)', note: 'Chụp trong vòng 6 tháng gần đây' },
-        { name: 'Giấy khám sức khỏe đủ điều kiện', note: 'Tại cơ sở y tế được Sở GTVT ủy quyền' },
-        { name: 'Đơn đề nghị học lái xe (mẫu)', note: 'Nhận tại văn phòng trung tâm hoặc tải online' },
-        { name: 'Lệ phí nộp hồ sơ', note: '200.000đ' },
+        { name: '01 Bản photo CCCD/CMND/Hộ chiếu', note: 'Không cần công chứng, đem theo bản gốc để đối chiếu' },
+        { name: '04 Ảnh thẻ 3x4 nền xanh hoặc trắng', note: 'Có hỗ trợ chụp ảnh trực tiếp tại trung tâm' },
+        { name: 'Giấy khám sức khỏe lái xe hạng A1', note: 'Khám nhanh tại bệnh viện liên kết của trung tâm' },
+        { name: 'Đơn đề nghị sát hạch cấp GPLX', note: 'Được phát và hướng dẫn điền khi nộp hồ sơ' },
       ],
 
       tuition: {
-        basePrice: '12.000.000đ',
+        basePrice: '750.000đ',
         options: [
-          { label: 'Học phí trọn gói', price: '12.000.000đ', note: 'Bao gồm toàn bộ chi phí đào tạo và thi sát hạch' },
-          { label: 'Trả góp 0% (6 tháng)', price: '2.000.000đ/tháng', note: 'Qua ngân hàng đối tác, không lãi suất' },
-          { label: 'Nhóm 3 người trở lên', price: '11.400.000đ/người', note: 'Giảm 5% – Liên hệ để được hỗ trợ' },
+          { label: 'Học phí trọn gói', price: '750.000đ', note: 'Đã bao gồm lệ phí đào tạo lý thuyết và thực hành' },
+          { label: 'Đăng ký nhóm từ 3 người', price: '690.000đ/người', note: 'Giảm 60.000đ cho mỗi học viên khi đăng ký cùng nhóm' },
+          { label: 'Hỗ trợ phòng thi VIP', price: '1.100.000đ', note: 'Bao gồm cả chi phí khám sức khỏe và chụp hình trọn gói' },
         ],
-        includes: ['Tài liệu học tập', 'Phí thi sát hạch lần đầu', 'Phí làm bằng', 'Bảo hiểm thân thể trong quá trình học'],
-        note: 'Học phí chưa bao gồm phí thi lại (nếu có). Học viên được học lại miễn phí.',
+        includes: ['Tài liệu 200 câu hỏi ôn tập', 'Sách luật giao thông & link app thi thử', 'Nước uống và phí sân tập thực hành'],
+        note: 'Lưu ý: Học viên nộp thêm lệ phí thi sát hạch của Sở GTVT tại sân thi (khoảng 265.000đ)',
       },
 
-      duration: '3 – 3.5 tháng',
-      passRate: '97%',
-      students: '5.000+',
-      nextOpen: '01/07/2026',
+      duration: '2 - 3 tuần',
+      passRate: '99%',
+      students: '12.000+',
+      nextOpen: '25/06/2026',
     },
 
-    // ──────────────── HẠNG B2 ────────────────
+    // ──────────────── HẠNG A ────────────────
     {
-      id: 'hang-b2',
-      badge: 'B2',
-      name: 'Khóa học lái xe hạng B2',
-      shortDesc: 'Dành cho xe số sàn và số tự động dưới 9 chỗ – Phổ biến nhất',
-      heroImage: 'https://sathachlaixebinhthuan.com/uploads/news/images/702_cr.png',
-      bannerColor: 'from-blue-600 to-indigo-800',
+      id: 'hang-a',
+      badge: 'A',
+      name: 'Khóa học lái xe mô tô hạng A',
+      shortDesc: 'Xe mô tô hai bánh dung tích từ 125cm³ trở lên (Phân khối lớn) và hạng A1',
+      heroImage: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=800&fit=crop',
+      bannerColor: '',
 
       reasons: {
-        title: 'Tại sao nên học hạng B2?',
-        subtitle: 'Hạng B2 là lựa chọn phổ biến nhất – Lái được cả xe số sàn lẫn số tự động',
+        title: 'Chinh phục xe phân khối lớn',
+        subtitle: 'Sở hữu tấm bằng hạng A để tự do cầm lái các dòng xe côn tay, xe PKL cực ngầu không giới hạn dung tích',
         items: [
-          { icon: 'FaCar', title: 'Lái cả 2 loại xe', desc: 'Vừa lái xe số sàn vừa lái xe số tự động – Linh hoạt hơn B1' },
-          { icon: 'FaBriefcase', title: 'Thuận lợi công việc', desc: 'Nhiều nhà tuyển dụng yêu cầu bằng B2, mở ra nhiều cơ hội việc làm hơn' },
-          { icon: 'FaRoad', title: 'Nâng cấp lên hạng C', desc: 'Có bằng B2 đủ 3 năm là đủ điều kiện để nâng cấp lên hạng C' },
-          { icon: 'FaTrophy', title: 'Kỹ năng toàn diện', desc: 'Kỹ năng lái xe hoàn thiện hơn, an toàn và tự tin trong mọi tình huống' },
+          { icon: 'FaRoad', title: 'Không giới hạn phân khối', desc: 'Điều khiển mọi loại mô tô 2 bánh từ 125cc, 150cc, 300cc cho đến 1000cc+' },
+          { icon: 'FaBriefcase', title: 'Thỏa đam mê xê dịch', desc: 'Phù hợp cho các bạn đam mê phượt, chạy xe tour đường dài chuyên nghiệp' },
+          { icon: 'FaTrophy', title: 'Tích hợp bằng A1', desc: 'Đã có bằng hạng A thì hoàn toàn được phép chạy mọi xe thuộc hạng A1' },
+          { icon: 'FaShieldAlt', title: 'Kỹ năng côn tay chuẩn', desc: 'Huấn luyện kỹ năng côn tay, thăng bằng xe nặng trên sa hình và thực tế' },
         ],
       },
 
       vehicles: [
-        { name: 'Xe sedan số sàn & số tự động', description: 'Toyota Vios, Honda Civic, Mazda 3... ≤ 9 chỗ', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1469285994282-454cbe0f2e9d?q=80&w=400&fit=crop' },
-        { name: 'Xe SUV số sàn & số tự động', description: 'Toyota Fortuner, Ford Ranger, Mazda CX-5...', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop' },
-        { name: 'Xe bán tải', description: 'Ford Ranger, Mitsubishi Triton, Isuzu D-Max...', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&fit=crop' },
+        { name: 'Xe mô tô PKL trên 125cc', description: 'Honda CB300R, Kawasaki Z400, Yamaha R6, Harley Davidson... không giới hạn', icon: 'FaMotorcycle', image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?q=80&w=400&fit=crop' },
+        { name: 'Xe máy côn tay 150cc', description: 'Yamaha Exciter, Honda Winner, Suzuki Raider... phổ biến', icon: 'FaMotorcycle', image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=400&fit=crop' },
       ],
 
       benefits: [
-        { icon: 'FaGraduationCap', title: 'Đào tạo bài bản', desc: 'Chương trình chuẩn Bộ GTVT, giảng viên kinh nghiệm 10+ năm' },
-        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Thi không đỗ được học lại hoàn toàn miễn phí đến khi đỗ' },
-        { icon: 'FaHeadset', title: 'Hỗ trợ 24/7', desc: 'Giải đáp thắc mắc, hỗ trợ lịch học linh hoạt theo nhu cầu' },
-        { icon: 'FaCertificate', title: 'Bằng chuẩn quốc gia', desc: 'Bằng lái do Sở GTVT cấp, có giá trị toàn quốc' },
-        { icon: 'FaShieldAlt', title: 'Xe tập đời mới', desc: 'Xe tập lái đời mới, trang bị đầy đủ thiết bị an toàn' },
-        { icon: 'FaArrowUp', title: 'Dễ nâng hạng', desc: 'Nền tảng tốt để nâng cấp lên hạng C sau 3 năm' },
+        { icon: 'FaShieldAlt', title: 'Xe tập đời mới', desc: 'Tập luyện trên các dòng xe PKL hiện đại, vận hành êm ái, dễ điều khiển' },
+        { icon: 'FaGraduationCap', title: 'Giảng viên kỳ cựu', desc: 'Được hướng dẫn bởi giáo viên là biker chuyên nghiệp có nhiều năm chạy tour' },
+        { icon: 'FaCertificate', title: 'Bằng lái vô thời hạn', desc: 'Bằng thẻ PET cứng do Sở GTVT cấp, giá trị sử dụng trọn đời' },
+        { icon: 'FaRedo', title: 'Tập xe tự do', desc: 'Được vào sân tập xe côn tay trước ngày thi để đảm bảo làm quen xe vững vàng' },
+      ],
+
+      curriculum: {
+        theory: {
+          total: '8 giờ lý thuyết',
+          items: [
+            'Luật giao thông đường bộ áp dụng cho xe PKL',
+            'Quy tắc đi phượt nhóm, đi tour an toàn',
+            'Kỹ thuật phanh ABS, kiểm soát lực kéo trên xe lớn',
+          ],
+        },
+        practice: {
+          total: '6 giờ thực hành',
+          items: [
+            'Điều khiển xe mô tô nặng qua vòng số 8 lớn',
+            'Kỹ năng giữ thăng bằng trên đường hẹp',
+            'Cách dựng xe nặng khi bị đổ an toàn',
+            'Kỹ thuật phanh gấp ở tốc độ cao',
+          ],
+        },
+        schedule: [
+          { phase: 'Giai đoạn 1', duration: '2 tuần', content: ['Nộp hồ sơ, nhận tài liệu 150 câu hỏi luật', 'Học lý thuyết và tập luyện xe côn tay tại sân tập'] },
+          { phase: 'Giai đoạn 2', duration: '1 ngày', content: ['Làm bài thi lý thuyết (23/25 câu đạt)', 'Thi thực hành chạy xe côn tay 250cc trên sa hình'] },
+          { phase: 'Giai đoạn 3', duration: '1.5 tuần', content: ['Nhận GPLX hạng A do Sở GTVT cấp'] },
+        ],
+      },
+
+      documents: [
+        { name: '01 Bản photo CCCD/CMND còn hạn', note: 'Đem theo bản gốc để đối chiếu' },
+        { name: '04 Ảnh thẻ 3x4 nền xanh hoặc trắng', note: 'Chụp chuẩn không đeo kính' },
+        { name: 'Giấy khám sức khỏe lái xe hạng A', note: 'Khám tại bệnh viện được chỉ định' },
+      ],
+
+      tuition: {
+        basePrice: '2.000.000đ',
+        options: [
+          { label: 'Học phí trọn gói', price: '2.000.000đ', note: 'Đã bao gồm tiền xăng, xe tập PKL và sân bãi' },
+          { label: 'Đã có bằng A1 (Miễn thi lý thuyết)', price: '1.700.000đ', note: 'Chỉ cần thi thực hành, được miễn thi lý thuyết 100%' },
+        ],
+        includes: ['Tài liệu ôn tập 150 câu', 'Thời gian tập thực hành tự do', 'Hỗ trợ xe côn tay sát hạch'],
+        note: 'Chưa bao gồm lệ phí thi sát hạch tại sân thi (khoảng 265.000đ)',
+      },
+
+      duration: '3 - 4 tuần',
+      passRate: '97%',
+      students: '3.000+',
+      nextOpen: '05/07/2026',
+    },
+
+    // ──────────────── HẠNG B TỰ ĐỘNG ────────────────
+    {
+      id: 'hang-b-tu-dong',
+      badge: 'B (TĐ)',
+      name: 'Khóa học lái xe hạng B (Số tự động)',
+      shortDesc: 'Ô tô chở người đến 8 chỗ, xe tải ≤ 3.5 tấn số tự động - Phù hợp cho gia đình',
+      heroImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&fit=crop',
+      bannerColor: '',
+
+      reasons: {
+        title: 'Lái xe số tự động nhàn nhã',
+        subtitle: 'Sự lựa chọn lý tưởng dành cho những ai chỉ có nhu cầu lái xe gia đình, đi lại trong đô thị đông đúc',
+        items: [
+          { icon: 'FaCar', title: 'Học nhanh, dễ đỗ', desc: 'Không lo tắt máy, giật cục hay trôi dốc. Thao tác lái xe cực kỳ đơn giản' },
+          { icon: 'FaBriefcase', title: 'Xe đô thị tiện lợi', desc: '95% xe hơi gia đình hiện nay là số tự động, lái xe thảnh thơi trong phố' },
+          { icon: 'FaShieldAlt', title: 'An toàn tối đa', desc: 'Tập trung hoàn toàn vào việc quan sát đường đi và chân phanh mà không cần sang số' },
+          { icon: 'FaClock', title: 'Tiết kiệm thời gian', desc: 'Thời gian làm quen xe và đạt độ nhuần nhuyễn nhanh hơn xe số sàn' },
+        ],
+      },
+
+      vehicles: [
+        { name: 'Xe ô tô số tự động 4-7 chỗ', description: 'Toyota Vios, Hyundai Accent, Mazda 3... số tự động', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=400&fit=crop' },
+        { name: 'Xe SUV/CUV tự động', description: 'Hyundai Tucson, Mazda CX-5, Ford Territory... đời mới', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop' },
+      ],
+
+      benefits: [
+        { icon: 'FaGraduationCap', title: 'Học thực hành 1 kèm 1', desc: 'Mỗi học viên một xe đời mới cùng giáo viên hướng dẫn sát sao suốt buổi học' },
+        { icon: 'FaRedo', title: 'Thi trượt học lại free', desc: 'Cam kết hỗ trợ ôn tập và sắp xếp thi lại miễn phí nếu thi chưa đạt' },
+        { icon: 'FaCertificate', title: 'Thời hạn 10 năm', desc: 'Bằng lái xe ô tô hạng B tự động có thời hạn sử dụng lên đến 10 năm' },
+        { icon: 'FaShieldAlt', title: 'Học xe đời mới', desc: 'Xe tập đời mới trang bị camera, cảm biến quanh xe và phanh phụ an toàn' },
       ],
 
       curriculum: {
         theory: {
           total: '168 giờ lý thuyết',
           items: [
-            'Luật Giao thông Đường bộ (56 giờ)',
-            'Kỹ thuật lái xe số sàn và số tự động (56 giờ)',
-            'Phòng tránh tai nạn giao thông (28 giờ)',
-            'Đạo đức người lái xe (16 giờ)',
-            'Kỹ thuật sang số, điều khiển ly hợp (12 giờ)',
+            'Luật giao thông đường bộ 600 câu',
+            'Kỹ thuật lái xe số tự động an toàn',
+            'Đạo đức người lái xe & Văn hóa giao thông',
+            'Cấu tạo và sửa chữa xe cơ bản',
           ],
         },
         practice: {
-          total: '552 km thực hành',
+          total: '710 km thực hành (DAT)',
           items: [
-            'Điều khiển xe trong sân (120 km) – 11 bài thi sa hình',
-            'Lái xe đô thị (250 km)',
-            'Lái xe đường trường (130 km)',
-            'Lái xe ban đêm (52 km)',
+            'Lái xe thực tế cabin mô phỏng 3D',
+            'Thực hành chạy 11 bài thi sa hình sát hạch',
+            'Chạy DAT đường trường 710 km theo quy định Bộ GTVT',
+            'Thực hành lái xe ban đêm và đô thị đông đúc',
           ],
         },
         schedule: [
-          { phase: 'Giai đoạn 1', duration: '1 tháng', content: ['Học lý thuyết Luật GTĐB', 'Ôn thi 600 câu lý thuyết', 'Thi sát hạch lý thuyết'] },
-          { phase: 'Giai đoạn 2', duration: '2.5-3 tháng', content: ['Làm quen xe số sàn', 'Học lái xe trong sân sa hình', 'Thực hành 11 bài thi', 'Học lái xe đường trường'] },
-          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Ôn tập tổng hợp', 'Thi sát hạch thực hành', 'Nhận bằng lái xe'] },
+          { phase: 'Giai đoạn 1', duration: '1 tháng', content: ['Học luật giao thông đường bộ', 'Ôn tập 600 câu hỏi và 120 tình huống mô phỏng', 'Thi tốt nghiệp lý thuyết cấp chứng chỉ'] },
+          { phase: 'Giai đoạn 2', duration: '2 tháng', content: ['Học lái xe cơ bản tại cabin', 'Chạy đủ 710km đường trường thiết bị DAT', 'Luyện 11 bài thi sa hình sát hạch'] },
+          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Thi thử sa hình trên xe thiết bị cảm biến', 'Thi sát hạch chính thức của Sở GTVT và nhận bằng lái xe'] },
         ],
       },
 
       documents: [
-        { name: 'CMND/CCCD hoặc Hộ chiếu còn hạn', note: 'Bản photo và bản gốc để đối chiếu' },
-        { name: '4 ảnh thẻ 3×4 (nền trắng)', note: 'Chụp trong vòng 6 tháng gần đây' },
-        { name: 'Giấy khám sức khỏe đủ điều kiện', note: 'Tại cơ sở y tế được Sở GTVT ủy quyền' },
-        { name: 'Đơn đề nghị học lái xe (mẫu)', note: 'Nhận tại văn phòng hoặc tải online' },
-        { name: 'Lệ phí nộp hồ sơ', note: '200.000đ' },
+        { name: '01 Bản photo CCCD/Hộ chiếu còn hạn', note: 'Đem theo bản chính để đối chiếu' },
+        { name: '06 Ảnh thẻ 3x4 nền trắng', note: 'Không đeo kính, tóc gọn gàng, áo sơ mi trắng' },
+        { name: 'Giấy khám sức khỏe lái xe hạng B', note: 'Do bệnh viện cấp quận trở lên cấp trong vòng 6 tháng' },
+      ],
+
+      tuition: {
+        basePrice: '12.500.000đ',
+        options: [
+          { label: 'Học phí trọn gói', price: '12.500.000đ', note: 'Không phát sinh bất kỳ chi phí xăng xe, sân bãi hay giáo viên' },
+          { label: 'Hỗ trợ trả góp 0%', price: '2.083.000đ/tháng', note: 'Chia nhỏ thanh toán thành nhiều đợt không mất lãi qua thẻ hoặc ngân hàng' },
+          { label: 'Đăng ký nhóm 2 người', price: '12.000.000đ/người', note: 'Giảm trực tiếp 500.000đ cho mỗi học viên' },
+        ],
+        includes: ['Tài liệu học tập & Ứng dụng thi thử', 'Phí chạy DAT 710km đường trường', 'Bảo hiểm học viên khi lái xe tập', 'Phí làm bằng'],
+        note: 'Học phí chưa bao gồm lệ phí thi sát hạch của Sở GTVT (khoảng 765.000đ)',
+      },
+
+      duration: '3 – 3.5 tháng',
+      passRate: '98%',
+      students: '9.500+',
+      nextOpen: '01/07/2026',
+    },
+
+    // ──────────────── HẠNG B SỐ SÀN ────────────────
+    {
+      id: 'hang-b-so-san',
+      badge: 'B (SS)',
+      name: 'Khóa học lái xe hạng B (Số sàn)',
+      shortDesc: 'Lái cả xe số sàn và số tự động dưới 8 chỗ, xe tải ≤ 3.5 tấn - Linh hoạt công việc',
+      heroImage: 'https://sathachlaixebinhthuan.com/uploads/news/images/702_cr.png',
+      bannerColor: '',
+
+      reasons: {
+        title: 'Làm chủ mọi loại xe hạng nhẹ',
+        subtitle: 'Bằng lái xe số sàn mang lại kỹ năng lái xe toàn diện nhất, cho phép bạn lái cả xe số sàn lẫn tự động',
+        items: [
+          { icon: 'FaCar', title: 'Lái cả 2 loại xe', desc: 'Vừa lái được xe số sàn vừa lái được xe số tự động - Vô cùng linh hoạt' },
+          { icon: 'FaBriefcase', title: 'Thích hợp kinh doanh', desc: 'Rất cần thiết nếu bạn muốn chạy dịch vụ, lái xe taxi, xe công ty hoặc kinh doanh vận tải' },
+          { icon: 'FaRoad', title: 'Nâng hạng dễ dàng', desc: 'Có bằng B số sàn đủ 3 năm là đủ điều kiện nâng cấp lên bằng hạng C hoặc D' },
+          { icon: 'FaTrophy', title: 'Kỹ năng toàn diện', desc: 'Kiểm soát tốt ly hợp (côn), làm chủ tốc độ và máy móc tối đa' },
+        ],
+      },
+
+      vehicles: [
+        { name: 'Xe ô tô số sàn & tự động', description: 'Toyota Vios MT, Chevrolet Cruze... ô tô số sàn dưới 8 chỗ', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1469285994282-454cbe0f2e9d?q=80&w=400&fit=crop' },
+        { name: 'Xe tải dưới 3.500 kg', description: 'Kia K200, Hyundai Porter... số sàn & số tự động', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&fit=crop' },
+      ],
+
+      benefits: [
+        { icon: 'FaGraduationCap', title: 'Chương trình bài bản', desc: 'Đào tạo kỹ năng ép côn, đề-pa khởi hành ngang dốc không lo tụt dốc' },
+        { icon: 'FaRedo', title: 'Thi lại thực hành free', desc: 'Nếu thi trượt thực hành, trung tâm hỗ trợ ôn tập và sắp xếp thi lại miễn phí hoàn toàn' },
+        { icon: 'FaTools', title: 'Trang bị cabin ảo', desc: 'Học thực hành cabin mô phỏng 3D giúp làm quen xe nhanh chóng' },
+        { icon: 'FaCertificate', title: 'Thời hạn 10 năm', desc: 'Bằng lái xe số sàn hạng B có giá trị toàn quốc, thời hạn sử dụng 10 năm' },
+      ],
+
+      curriculum: {
+        theory: {
+          total: '168 giờ lý thuyết',
+          items: [
+            'Luật giao thông bộ 600 câu',
+            'Nguyên lý hoạt động của hộp số sàn & chân côn',
+            'Đạo đức người lái xe & Quy tắc ứng xử',
+            'Kỹ năng sửa chữa khẩn cấp pan xe',
+          ],
+        },
+        practice: {
+          total: '810 km thực hành (DAT)',
+          items: [
+            'Học côn số nguội tại chỗ',
+            'Tập đề-pa khởi hành ngang dốc sa hình',
+            'Chạy đường trường DAT đủ 810km bắt buộc',
+            'Luyện tập sa hình cảm biến sát hạch 11 bài thi',
+          ],
+        },
+        schedule: [
+          { phase: 'Giai đoạn 1', duration: '1 tháng', content: ['Học luật 600 câu lý thuyết', 'Luyện thi thử trên app điện thoại', 'Thi tốt nghiệp lý thuyết chứng chỉ'] },
+          { phase: 'Giai đoạn 2', duration: '2 - 2.5 tháng', content: ['Làm quen chân côn, chân phanh', 'Chạy DAT đường trường 810km bắt buộc', 'Ôn tập sa hình sát hạch 11 bài thi'] },
+          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Thi sát hạch lý thuyết & thực hành sa hình, đường trường', 'Nhận GPLX sau 10 ngày thi đỗ'] },
+        ],
+      },
+
+      documents: [
+        { name: '01 Bản photo CCCD/Hộ chiếu còn hạn', note: 'Đem kèm bản gốc để đối chiếu' },
+        { name: '06 Ảnh thẻ 3x4 nền trắng', note: 'Mặc áo sơ mi có cổ, chụp không quá 6 tháng' },
+        { name: 'Giấy khám sức khỏe lái xe ô tô hạng B', note: 'Tại các cơ sở y tế quận/huyện trở lên' },
       ],
 
       tuition: {
         basePrice: '13.500.000đ',
         options: [
-          { label: 'Học phí trọn gói', price: '13.500.000đ', note: 'Bao gồm toàn bộ chi phí đào tạo và thi sát hạch' },
-          { label: 'Trả góp 0% (6 tháng)', price: '2.250.000đ/tháng', note: 'Qua ngân hàng đối tác, không lãi suất' },
-          { label: 'Nhóm 3 người trở lên', price: '12.825.000đ/người', note: 'Giảm 5% – Liên hệ để được hỗ trợ' },
+          { label: 'Học phí trọn gói', price: '13.500.000đ', note: 'Bao gồm toàn bộ chi phí xăng, giáo viên, sân bãi' },
+          { label: 'Trả góp 0% lãi suất', price: '2.250.000đ/tháng', note: 'Trả dần trong vòng 6 tháng qua ngân hàng đối tác' },
+          { label: 'Đăng ký nhóm 3 người', price: '12.900.000đ/người', note: 'Giảm ngay 600.000đ/người khi nộp hồ sơ chung' },
         ],
-        includes: ['Tài liệu học tập', 'Phí thi sát hạch lần đầu', 'Phí làm bằng', 'Bảo hiểm thân thể trong quá trình học'],
-        note: 'Học phí chưa bao gồm phí thi lại (nếu có). Học viên được học lại miễn phí.',
+        includes: ['Tài liệu luật giao thông', 'Phí chạy DAT 810km', 'Nước uống và phí tập sa hình', 'Lệ phí thi tốt nghiệp'],
+        note: 'Chưa bao gồm lệ phí thi sát hạch trực tiếp tại sân thi (khoảng 765.000đ)',
       },
 
       duration: '3.5 – 4 tháng',
-      passRate: '98%',
-      students: '8.000+',
+      passRate: '96%',
+      students: '15.000+',
       nextOpen: '01/07/2026',
     },
 
+    // ──────────────── HẠNG C1 ────────────────
     {
       id: 'hang-c1',
       badge: 'C1',
       name: 'Khóa học lái xe hạng C1',
-      shortDesc: 'Dành cho xe tải có tổng trọng tải trên 3.5 tấn đến 7.5 tấn – Cơ hội việc làm cao',
-      heroImage: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&fit=crop',
-      bannerColor: 'from-orange-600 to-red-800',
+      shortDesc: 'Xe tải từ 3.5 tấn đến 7.5 tấn, xe chở người dưới 8 chỗ - Cơ hội nghề nghiệp tốt',
+      heroImage: 'https://vcdn1-vnexpress.vnecdn.net/2017/11/17/22894273-1520069774745739-7908-2762-5450-1510889303.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=6z9wKrg4avXw-oSMpbPngA',
+      bannerColor: '',
 
       reasons: {
-        title: 'Tại sao nên học hạng C?',
-        subtitle: 'Hạng C mở ra cơ hội việc làm rộng lớn trong lĩnh vực vận tải hàng hóa',
+        title: 'Lựa chọn vận tải tối ưu',
+        subtitle: 'Hạng bằng mới tối ưu cho tài xế xe tải tầm trung vận chuyển hàng hóa nội tỉnh và liên tỉnh',
         items: [
-          { icon: 'FaTruck', title: 'Lái xe tải hạng nặng', desc: 'Điều khiển xe tải >3.5 tấn, xe đông lạnh, xe chở hàng – Lĩnh vực logistic đang bùng nổ' },
-          { icon: 'FaBriefcase', title: 'Nhu cầu tuyển dụng cao', desc: 'Thị trường vận tải hàng hóa thiếu hụt lái xe, mức lương hấp dẫn 15-25 triệu/tháng' },
-          { icon: 'FaArrowUp', title: 'Nâng cấp lên hạng D', desc: 'Từ hạng C đủ 3 năm có thể nâng lên hạng D (xe khách)' },
-          { icon: 'FaMoneyBillWave', title: 'Thu nhập ổn định', desc: 'Lái xe hàng hóa có thu nhập ổn định, có thể nhận hợp đồng freelance' },
+          { icon: 'FaTruck', title: 'Lái xe tải trung', desc: 'Được phép điều khiển xe tải từ 3.500 kg lên tới 7.500 kg - Phân khúc xe đông lạnh, xe tải giao hàng rất hot' },
+          { icon: 'FaBriefcase', title: 'Cơ hội việc làm cao', desc: 'Rất nhiều công ty logistics và vận chuyển hàng hóa tuyển dụng tài xế hạng C1' },
+          { icon: 'FaArrowUp', title: 'Chi phí hợp lý', desc: 'Tiết kiệm chi phí và thời gian học so với bằng hạng C (xe tải > 7.5t) nếu không có nhu cầu chạy xe quá lớn' },
+          { icon: 'FaTrophy', title: 'Nâng hạng thuận tiện', desc: 'Đủ niên hạn có thể dễ dàng nâng cấp lên bằng hạng C hoặc hạng D1 (xe khách 10-16 chỗ)' },
         ],
       },
 
       vehicles: [
-        { name: 'Xe tải nhẹ 3.5-8 tấn', description: 'Isuzu NPR, Hyundai Porter, Kia K250... trọng tải 3.5-8 tấn', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&fit=crop' },
-        { name: 'Xe tải nặng 8-15 tấn', description: 'Hyundai HD170, Dongfeng, Howo... trọng tải 8-15 tấn', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&fit=crop' },
-        { name: 'Xe đông lạnh, xe chở hàng đặc biệt', description: 'Xe đông lạnh, xe chở gia súc, xe bồn... có trọng tải phù hợp', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop' },
+        { name: 'Xe tải từ 3.5t đến 7.5t', description: 'Các dòng xe tải thiết kế trung, Isuzu FRR, Hyundai Mighty... đông lạnh', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&fit=crop' },
+        { name: 'Xe ô tô dưới 8 chỗ', description: 'Lái được tất cả các loại xe thuộc quy định của hạng B', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1469285994282-454cbe0f2e9d?q=80&w=400&fit=crop' },
+        { name: 'Các loại xe kéo rơ moóc', description: 'Được kéo rơ moóc có khối lượng thiết kế không quá 750 kg', icon: 'FaRoute', image: 'https://vcdn1-vnexpress.vnecdn.net/2017/11/17/22894273-1520069774745739-7908-2762-5450-1510889303.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=6z9wKrg4avXw-oSMpbPngA' },
       ],
 
       benefits: [
-        { icon: 'FaGraduationCap', title: 'Huấn luyện chuyên sâu', desc: 'Kỹ thuật lái xe tải, xử lý tình huống với xe trọng tải lớn' },
-        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Thi không đỗ được học lại hoàn toàn miễn phí đến khi đỗ' },
-        { icon: 'FaTools', title: 'Kiến thức cơ khí', desc: 'Được hướng dẫn kiểm tra kỹ thuật xe trước khi xuất bến' },
-        { icon: 'FaCertificate', title: 'Bằng hạng C toàn quốc', desc: 'Được Sở GTVT cấp, lái được toàn bộ xe tải trong phạm vi quy định' },
-        { icon: 'FaShieldAlt', title: 'An toàn tuyệt đối', desc: 'Đào tạo kỹ năng an toàn, phòng ngừa tai nạn nghề nghiệp' },
-        { icon: 'FaNetworkWired', title: 'Kết nối việc làm', desc: 'Hỗ trợ giới thiệu việc làm qua mạng lưới doanh nghiệp đối tác' },
+        { icon: 'FaGraduationCap', title: 'Đào tạo xe tải trung', desc: 'Hướng dẫn kỹ năng lái xe tải dài, căn đường trong ngõ hẹp và xử lý góc cua an toàn' },
+        { icon: 'FaCertificate', title: 'Thời hạn bằng 10 năm', desc: 'Theo quy định mới nhất, bằng lái hạng C1 có thời hạn sử dụng lên đến 10 năm' },
+        { icon: 'FaShieldAlt', title: 'An toàn xếp dỡ hàng', desc: 'Trang bị kiến thức về neo giữ hàng hóa, cân tải trọng xe tránh bị phạt quá tải' },
+        { icon: 'FaRedo', title: 'Hỗ trợ thi lại nhanh', desc: 'Hỗ trợ hồ sơ và xếp lịch thi lại nhanh chóng nhất cho học viên nếu chưa đạt' },
       ],
 
       curriculum: {
         theory: {
           total: '168 giờ lý thuyết',
           items: [
-            'Luật Giao thông Đường bộ và quy định xe tải (60 giờ)',
-            'Kỹ thuật lái xe hạng nặng (50 giờ)',
-            'Kiểm tra kỹ thuật xe trước chuyến đi (20 giờ)',
-            'Phòng tránh tai nạn, xử lý sự cố (28 giờ)',
-            'Vận chuyển hàng hóa an toàn (10 giờ)',
+            'Luật giao thông đường bộ xe tải chuyên ngành',
+            'Kỹ thuật xếp dỡ hàng hóa và neo buộc an toàn',
+            'Nguyên lý cấu tạo phanh khí nén (phanh hơi)',
+            'Đạo đức nghề nghiệp người lái xe vận tải',
           ],
         },
         practice: {
-          total: '820 km thực hành',
+          total: '820 km thực hành (DAT)',
           items: [
-            'Điều khiển xe trong sân tập (160 km)',
-            'Lái xe tải đô thị (300 km)',
-            'Lái xe đường dài, cao tốc (280 km)',
-            'Lái xe ban đêm, lái xe điều kiện thời tiết xấu (80 km)',
+            'Tập lái xe tải trung trong sa hình cảm biến',
+            'Thực hành căn xe qua đường hẹp vuông góc',
+            'Chạy DAT 820km đường trường bắt buộc thiết bị định vị',
+            'Luyện tập kỹ thuật đỗ xe tải sát vỉa hè, lùi chuồng dọc',
           ],
         },
         schedule: [
-          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học lý thuyết Luật GTĐB', 'Kiến thức xe tải, cơ khí cơ bản', 'Thi sát hạch lý thuyết'] },
-          { phase: 'Giai đoạn 2', duration: '3 tháng', content: ['Làm quen với xe tải hạng nặng', 'Lái xe trong sân (bài thi sa hình)', 'Lái xe đường trường, đường dài'] },
-          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Ôn tập toàn diện', 'Thi sát hạch thực hành', 'Nhận bằng lái hạng C'] },
+          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học luật giao thông đường bộ', 'Học kỹ thuật nghiệp vụ vận tải xe tải', 'Thi chứng chỉ tốt nghiệp lý thuyết'] },
+          { phase: 'Giai đoạn 2', duration: '2.5 - 3 tháng', content: ['Làm quen xe tải phanh hơi tầm trung', 'Chạy đủ 820km thiết bị giám sát hành trình DAT', 'Tập luyện sa hình sát hạch xe tải C1'] },
+          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Thi sát hạch Sở GTVT (Lý thuyết, Mô phỏng, Sa hình, Đường trường)', 'Nhận bằng lái hạng C1'] },
         ],
       },
 
       documents: [
-        { name: 'CMND/CCCD hoặc Hộ chiếu còn hạn', note: 'Bản photo và bản gốc để đối chiếu' },
-        { name: 'Bằng lái xe hạng B2 (bản photo)', note: 'Cần đủ 3 năm tính từ ngày cấp bằng B2' },
-        { name: '4 ảnh thẻ 3×4 (nền trắng)', note: 'Chụp trong vòng 6 tháng gần đây' },
-        { name: 'Giấy khám sức khỏe đủ điều kiện', note: 'Tại cơ sở y tế được Sở GTVT ủy quyền' },
-        { name: 'Đơn đề nghị học nâng hạng', note: 'Nhận tại văn phòng hoặc tải online' },
-        { name: 'Lệ phí nộp hồ sơ', note: '200.000đ' },
+        { name: '01 Bản photo CCCD/Hộ chiếu còn hạn', note: 'Đem kèm bản chính để đối chiếu' },
+        { name: '06 Ảnh thẻ 3x4 nền trắng', note: 'Ảnh rõ nét chụp gần đây, áo sơ mi lịch sự' },
+        { name: 'Giấy khám sức khỏe lái xe hạng C1/C', note: 'Khám tại cơ sở y tế đủ thẩm quyền theo quy định Bộ Y Tế' },
       ],
 
       tuition: {
-        basePrice: '15.000.000đ',
+        basePrice: '14.500.000đ',
         options: [
-          { label: 'Học phí trọn gói', price: '15.000.000đ', note: 'Bao gồm toàn bộ chi phí đào tạo và thi sát hạch' },
-          { label: 'Trả góp 0% (6 tháng)', price: '2.500.000đ/tháng', note: 'Qua ngân hàng đối tác, không lãi suất' },
-          { label: 'Nhóm 3 người trở lên', price: '14.250.000đ/người', note: 'Giảm 5% – Liên hệ để được hỗ trợ' },
+          { label: 'Trọn gói cam kết', price: '14.500.000đ', note: 'Đào tạo từ đầu cho người chưa biết lái, cam kết không phát sinh chi phí' },
+          { label: 'Trả góp linh hoạt', price: '2.416.000đ/tháng', note: 'Không lãi suất trong vòng 6 tháng qua ngân hàng liên kết' },
+          { label: 'Nâng hạng từ bằng B', price: '9.000.000đ', note: 'Dành cho học viên đã có bằng B đủ niên hạn và số km lái xe an toàn' },
         ],
-        includes: ['Tài liệu học tập chuyên ngành xe tải', 'Phí thi sát hạch lần đầu', 'Phí làm bằng', 'Bảo hiểm thân thể trong quá trình học'],
-        note: 'Yêu cầu đã có bằng B2 tối thiểu 3 năm. Học phí chưa bao gồm phí thi lại nếu có.',
+        includes: ['Tài liệu & App ôn thi', 'Phí chạy DAT 820km đường trường', 'Bảo hiểm đào tạo cho học viên', 'Phí thuê xe tập'],
+        note: 'Chưa bao gồm lệ phí thi sát hạch của Sở GTVT khi thi (khoảng 765.000đ)',
       },
 
-      duration: '4 – 5 tháng',
+      duration: '4.5 – 5 tháng',
       passRate: '96%',
-      students: '3.500+',
+      students: '4.500+',
       nextOpen: '15/07/2026',
     },
 
@@ -366,87 +513,81 @@ export const coursesPageData: CoursesPageData = {
       id: 'hang-c',
       badge: 'C',
       name: 'Khóa học lái xe hạng C',
-      shortDesc: 'Dành cho xe tải có tổng trọng tải trên 3.5 tấn – Cơ hội việc làm cao',
+      shortDesc: 'Xe tải hạng nặng trên 7.5 tấn, xe chuyên dùng, xe hạng B và C1 - Nghề nghiệp vững vàng',
       heroImage: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&fit=crop',
-      bannerColor: 'from-orange-600 to-red-800',
+      bannerColor: '',
 
       reasons: {
-        title: 'Tại sao nên học hạng C?',
-        subtitle: 'Hạng C mở ra cơ hội việc làm rộng lớn trong lĩnh vực vận tải hàng hóa',
+        title: 'Vua đường trường tải nặng',
+        subtitle: 'Sở hữu bằng lái xe tải không giới hạn tải trọng, mở ra cơ hội việc làm lương cao trong ngành vận tải logistics',
         items: [
-          { icon: 'FaTruck', title: 'Lái xe tải hạng nặng', desc: 'Điều khiển xe tải >3.5 tấn, xe đông lạnh, xe chở hàng – Lĩnh vực logistic đang bùng nổ' },
-          { icon: 'FaBriefcase', title: 'Nhu cầu tuyển dụng cao', desc: 'Thị trường vận tải hàng hóa thiếu hụt lái xe, mức lương hấp dẫn 15-25 triệu/tháng' },
-          { icon: 'FaArrowUp', title: 'Nâng cấp lên hạng D', desc: 'Từ hạng C đủ 3 năm có thể nâng lên hạng D (xe khách)' },
-          { icon: 'FaMoneyBillWave', title: 'Thu nhập ổn định', desc: 'Lái xe hàng hóa có thu nhập ổn định, có thể nhận hợp đồng freelance' },
+          { icon: 'FaTruck', title: 'Không giới hạn tải trọng', desc: 'Điều khiển mọi dòng xe tải hạng nặng, xe ben, xe bồn lớn trên 7.5 tấn' },
+          { icon: 'FaBriefcase', title: 'Lương cao, ổn định', desc: 'Thu nhập tài xế xe tải nặng dao động từ 15-25 triệu/tháng nhờ nhu cầu vận chuyển hàng hóa lớn' },
+          { icon: 'FaGlobe', title: 'Chạy xe liên tỉnh', desc: 'Được đào tạo bài bản để lái xe đường dài liên tỉnh, chạy đêm xuyên quốc gia' },
+          { icon: 'FaArrowUp', title: 'Nâng hạng lên bằng E, F', desc: 'Nền tảng quan trọng để nâng cấp lên các hạng bằng cao nhất như FC, FE lái container đầu kéo' },
         ],
       },
 
       vehicles: [
-        { name: 'Xe tải nhẹ 3.5-8 tấn', description: 'Isuzu NPR, Hyundai Porter, Kia K250... trọng tải 3.5-8 tấn', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&fit=crop' },
-        { name: 'Xe tải nặng 8-15 tấn', description: 'Hyundai HD170, Dongfeng, Howo... trọng tải 8-15 tấn', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&fit=crop' },
-        { name: 'Xe đông lạnh, xe chở hàng đặc biệt', description: 'Xe đông lạnh, xe chở gia súc, xe bồn... có trọng tải phù hợp', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop' },
+        { name: 'Xe tải nặng trên 7.5t', description: 'Howo, Dongfeng, Hyundai 3-4 chân... tải trọng > 7.5 tấn', icon: 'FaTruck', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&fit=crop' },
+        { name: 'Xe chuyên dùng', description: 'Xe cần cẩu, xe nâng, xe cứu hộ, xe trộn bê tông... có tải trọng phù hợp', icon: 'FaTools', image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&fit=crop' },
+        { name: 'Các loại xe B, C1', description: 'Điều khiển toàn bộ phương tiện thuộc quy định bằng B và C1', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1469285994282-454cbe0f2e9d?q=80&w=400&fit=crop' },
       ],
 
       benefits: [
-        { icon: 'FaGraduationCap', title: 'Huấn luyện chuyên sâu', desc: 'Kỹ thuật lái xe tải, xử lý tình huống với xe trọng tải lớn' },
-        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Thi không đỗ được học lại hoàn toàn miễn phí đến khi đỗ' },
-        { icon: 'FaTools', title: 'Kiến thức cơ khí', desc: 'Được hướng dẫn kiểm tra kỹ thuật xe trước khi xuất bến' },
-        { icon: 'FaCertificate', title: 'Bằng hạng C toàn quốc', desc: 'Được Sở GTVT cấp, lái được toàn bộ xe tải trong phạm vi quy định' },
-        { icon: 'FaShieldAlt', title: 'An toàn tuyệt đối', desc: 'Đào tạo kỹ năng an toàn, phòng ngừa tai nạn nghề nghiệp' },
-        { icon: 'FaNetworkWired', title: 'Kết nối việc làm', desc: 'Hỗ trợ giới thiệu việc làm qua mạng lưới doanh nghiệp đối tác' },
+        { icon: 'FaGraduationCap', title: 'Huấn luyện sinh động', desc: 'Tập luyện trên cabin mô phỏng 3D hiện đại và thực hành trên xe tải 4 chân thực tế' },
+        { icon: 'FaNetworkWired', title: 'Giới thiệu việc làm', desc: 'Hỗ trợ giới thiệu học viên xuất sắc vào các doanh nghiệp logistics đối tác lớn của trung tâm' },
+        { icon: 'FaCertificate', title: 'Thời hạn bằng 5 năm', desc: 'Bằng hạng C có thời hạn sử dụng 5 năm, gia hạn đơn giản không cần thi lại' },
+        { icon: 'FaRedo', title: 'Ôn tập thực hành free', desc: 'Học viên được hỗ trợ tập thêm giờ cảm biến trước ngày thi lại nếu không may thi chưa đạt' },
       ],
 
       curriculum: {
         theory: {
           total: '168 giờ lý thuyết',
           items: [
-            'Luật Giao thông Đường bộ và quy định xe tải (60 giờ)',
-            'Kỹ thuật lái xe hạng nặng (50 giờ)',
-            'Kiểm tra kỹ thuật xe trước chuyến đi (20 giờ)',
-            'Phòng tránh tai nạn, xử lý sự cố (28 giờ)',
-            'Vận chuyển hàng hóa an toàn (10 giờ)',
+            'Luật giao thông đường bộ nâng cao cho lái xe chuyên nghiệp',
+            'Nghiệp vụ vận tải hàng hóa nặng liên tỉnh',
+            'Cấu tạo bảo dưỡng động cơ diesel xe tải nặng',
+            'Kỹ năng sơ cứu và xử lý sự cố nguy hiểm xe tải nặng',
           ],
         },
         practice: {
-          total: '820 km thực hành',
+          total: '820 km thực hành (DAT)',
           items: [
-            'Điều khiển xe trong sân tập (160 km)',
-            'Lái xe tải đô thị (300 km)',
-            'Lái xe đường dài, cao tốc (280 km)',
-            'Lái xe ban đêm, lái xe điều kiện thời tiết xấu (80 km)',
+            'Làm quen xe tải nặng số nhiều tầng (số rùa/thỏ)',
+            'Thực hành căn lề, lùi chuồng dọc xe tải lớn',
+            'Chạy DAT đường trường 820km bắt buộc ghi nhận thiết bị định vị',
+            'Luyện tập lái xe đường đèo dốc hiểm trở và đường trơn trượt',
           ],
         },
         schedule: [
-          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học lý thuyết Luật GTĐB', 'Kiến thức xe tải, cơ khí cơ bản', 'Thi sát hạch lý thuyết'] },
-          { phase: 'Giai đoạn 2', duration: '3 tháng', content: ['Làm quen với xe tải hạng nặng', 'Lái xe trong sân (bài thi sa hình)', 'Lái xe đường trường, đường dài'] },
-          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Ôn tập toàn diện', 'Thi sát hạch thực hành', 'Nhận bằng lái hạng C'] },
+          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học luật 600 câu & 120 tình huống mô phỏng trên phần mềm', 'Học nghiệp vụ vận tải và cấu tạo xe tải nặng', 'Thi tốt nghiệp chứng chỉ nghề'] },
+          { phase: 'Giai đoạn 2', duration: '3 tháng', content: ['Học số nguội, số nóng xe tải lớn', 'Chạy DAT 820km có thiết bị giám sát', 'Luyện tập 11 bài thi sa hình xe tải hạng C'] },
+          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Thi sát hạch lý thuyết, sa hình & đường trường', 'Nhận bằng lái xe tải hạng C chính thức'] },
         ],
       },
 
       documents: [
-        { name: 'CMND/CCCD hoặc Hộ chiếu còn hạn', note: 'Bản photo và bản gốc để đối chiếu' },
-        { name: 'Bằng lái xe hạng B2 (bản photo)', note: 'Cần đủ 3 năm tính từ ngày cấp bằng B2' },
-        { name: '4 ảnh thẻ 3×4 (nền trắng)', note: 'Chụp trong vòng 6 tháng gần đây' },
-        { name: 'Giấy khám sức khỏe đủ điều kiện', note: 'Tại cơ sở y tế được Sở GTVT ủy quyền' },
-        { name: 'Đơn đề nghị học nâng hạng', note: 'Nhận tại văn phòng hoặc tải online' },
-        { name: 'Lệ phí nộp hồ sơ', note: '200.000đ' },
+        { name: '01 Bản photo CCCD/Hộ chiếu còn hạn', note: 'Yêu cầu đủ 21 tuổi trở lên tính đến ngày thi' },
+        { name: '06 Ảnh thẻ 3x4 nền trắng', note: 'Tóc tai gọn gàng, mặc áo sơ mi' },
+        { name: 'Giấy khám sức khỏe lái xe hạng C', note: 'Có xét nghiệm ma túy âm tính bắt buộc' },
       ],
 
       tuition: {
-        basePrice: '15.000.000đ',
+        basePrice: '16.000.000đ',
         options: [
-          { label: 'Học phí trọn gói', price: '15.000.000đ', note: 'Bao gồm toàn bộ chi phí đào tạo và thi sát hạch' },
-          { label: 'Trả góp 0% (6 tháng)', price: '2.500.000đ/tháng', note: 'Qua ngân hàng đối tác, không lãi suất' },
-          { label: 'Nhóm 3 người trở lên', price: '14.250.000đ/người', note: 'Giảm 5% – Liên hệ để được hỗ trợ' },
+          { label: 'Học phí trọn gói', price: '16.000.000đ', note: 'Không phát sinh thêm chi phí dã ngoại đường trường hay xăng xe' },
+          { label: 'Học trả góp', price: '2.666.000đ/tháng', note: 'Thanh toán đợt đầu chỉ từ 4.000.000đ để nhập học ngay' },
+          { label: 'Nâng hạng từ B2 lên C', price: '10.000.000đ', note: 'Yêu cầu 3 năm kinh nghiệm lái xe an toàn và đủ tuổi' },
         ],
-        includes: ['Tài liệu học tập chuyên ngành xe tải', 'Phí thi sát hạch lần đầu', 'Phí làm bằng', 'Bảo hiểm thân thể trong quá trình học'],
-        note: 'Yêu cầu đã có bằng B2 tối thiểu 3 năm. Học phí chưa bao gồm phí thi lại nếu có.',
+        includes: ['Tài liệu & PM ôn thi độc quyền', 'Phí chạy DAT 820km xe tải nặng', 'Phí làm bằng thẻ PET', 'Bảo hiểm'],
+        note: 'Học viên nộp thêm lệ phí thi sát hạch cho sân thi vào ngày thi (khoảng 765.000đ)',
       },
 
-      duration: '4 – 5 tháng',
-      passRate: '96%',
-      students: '3.500+',
-      nextOpen: '15/07/2026',
+      duration: '5 – 5.5 tháng',
+      passRate: '95%',
+      students: '6.000+',
+      nextOpen: '01/08/2026',
     },
 
     // ──────────────── HẠNG D ────────────────
@@ -454,86 +595,80 @@ export const coursesPageData: CoursesPageData = {
       id: 'hang-d',
       badge: 'D',
       name: 'Khóa học lái xe hạng D',
-      shortDesc: 'Dành cho xe chở người từ 10-30 chỗ ngồi – Nghề nghiệp chuyên nghiệp',
+      shortDesc: 'Xe ô tô chở người từ 10-30 chỗ ngồi, xe hạng B, C1, C - Sự nghiệp tài xế du lịch',
       heroImage: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&fit=crop',
-      bannerColor: 'from-purple-600 to-violet-800',
+      bannerColor: '',
 
       reasons: {
-        title: 'Tại sao nên học hạng D?',
-        subtitle: 'Hạng D là bằng lái dành cho tài xế xe khách, xe du lịch – Ngành vận tải hành khách',
+        title: 'Vận tải hành khách chuyên nghiệp',
+        subtitle: 'Sự nghiệp tài xế xe du lịch, xe khách, limousine cao cấp mang lại thu nhập vững vàng cho gia đình',
         items: [
-          { icon: 'FaBus', title: 'Lái xe khách, xe du lịch', desc: 'Điều khiển xe từ 10-30 chỗ: xe buýt nhỏ, xe du lịch, xe limousine...' },
-          { icon: 'FaBriefcase', title: 'Nghề nghiệp bền vững', desc: 'Nhu cầu lái xe khách, xe du lịch luôn cao – Đặc biệt trong ngành du lịch' },
-          { icon: 'FaGlobe', title: 'Cơ hội toàn quốc', desc: 'Làm việc cho hãng xe buýt, công ty du lịch, resort khắp cả nước' },
-          { icon: 'FaArrowUp', title: 'Nâng cấp lên hạng E', desc: 'Từ hạng D đủ 3 năm có thể nâng lên hạng E (xe >30 chỗ)' },
+          { icon: 'FaBus', title: 'Lái xe khách đến 30 chỗ', desc: 'Điều khiển các dòng xe du lịch 16 chỗ, xe limousine, xe buýt nhỏ, xe khách 29 chỗ' },
+          { icon: 'FaBriefcase', title: 'Việc làm ổn định', desc: 'Nhu cầu tuyển dụng lái xe limousine chạy tuyến, lái xe du lịch lữ hành cực kỳ lớn' },
+          { icon: 'FaGlobe', title: 'Thu nhập hấp dẫn', desc: 'Thu nhập trung bình từ 18-28 triệu/tháng bao gồm lương cứng và tiền thưởng/tip du lịch' },
+          { icon: 'FaArrowUp', title: 'Nâng lên hạng E dễ dàng', desc: 'Đủ niên hạn bằng hạng D có thể dễ dàng nâng hạng lên E để lái xe giường nằm trên 30 chỗ' },
         ],
       },
 
       vehicles: [
-        { name: 'Xe 16-20 chỗ (Limousine)', description: 'Ford Transit, Solati, Dcar... xe du lịch cao cấp', icon: 'FaBus', image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&fit=crop' },
-        { name: 'Xe khách 24-30 chỗ', description: 'Hyundai County, Samco, Thaco... xe khách tuyến nội tỉnh', icon: 'FaBus', image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=400&fit=crop' },
-        { name: 'Xe buýt nội đô', description: 'Các loại xe buýt 20-30 chỗ phục vụ giao thông công cộng đô thị', icon: 'FaBus', image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&fit=crop' },
+        { name: 'Xe khách từ 10-30 chỗ', description: 'Ford Transit, Hyundai Solati, Samco, Thaco 29 chỗ...', icon: 'FaBus', image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&fit=crop' },
+        { name: 'Các loại xe B, C1, C', description: 'Cho phép lái tất cả các dòng xe con và xe tải mọi trọng tải', icon: 'FaCar', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&fit=crop' },
       ],
 
       benefits: [
-        { icon: 'FaGraduationCap', title: 'Đào tạo chuyên nghiệp', desc: 'Kỹ năng phục vụ hành khách, xử lý tình huống trên xe khách' },
-        { icon: 'FaRedo', title: 'Học lại miễn phí', desc: 'Thi không đỗ được học lại hoàn toàn miễn phí đến khi đỗ' },
-        { icon: 'FaFirstAid', title: 'Kỹ năng sơ cứu', desc: 'Được đào tạo kỹ năng sơ cứu cơ bản cho hành khách khi sự cố' },
-        { icon: 'FaCertificate', title: 'Bằng hạng D toàn quốc', desc: 'Bằng lái chính quy, làm việc cho mọi hãng vận tải trong nước' },
-        { icon: 'FaShieldAlt', title: 'An toàn hành khách', desc: 'Đào tạo đặc biệt về an toàn, bảo vệ hành khách trong mọi tình huống' },
-        { icon: 'FaNetworkWired', title: 'Kết nối việc làm', desc: 'Hỗ trợ tìm việc tại các hãng xe, công ty du lịch đối tác' },
+        { icon: 'FaGraduationCap', title: 'Đào tạo kỹ năng mềm', desc: 'Huấn luyện kỹ năng ứng xử văn minh với hành khách và lái xe êm ái chống say xe' },
+        { icon: 'FaFirstAid', title: 'Sơ cứu y tế cơ bản', desc: 'Được học khóa sơ cấp cứu cơ bản và kỹ năng xử lý sự cố cháy nổ trên xe khách' },
+        { icon: 'FaRedo', title: 'Tập xe chip miễn phí', desc: 'Được tặng thêm giờ tập xe thiết bị cảm biến (xe chip) trước kỳ thi chính thức' },
+        { icon: 'FaShieldAlt', title: 'An toàn hành khách', desc: 'Đào tạo đặt biệt về an toàn chủ động, kỹ thuật phanh đổ đèo bảo vệ hành khách' },
       ],
 
       curriculum: {
         theory: {
           total: '200 giờ lý thuyết',
           items: [
-            'Luật Giao thông và quy định xe khách (70 giờ)',
-            'Kỹ thuật lái xe khách, xe du lịch (60 giờ)',
-            'Phục vụ và ứng xử với hành khách (30 giờ)',
-            'An toàn, phòng cháy chữa cháy (25 giờ)',
-            'Sơ cứu y tế cơ bản (15 giờ)',
+            'Luật giao thông xe khách nâng cao',
+            'Kỹ năng phục vụ hành khách & giao tiếp ứng xử',
+            'An toàn phòng cháy chữa cháy trên xe ô tô chở người',
+            'Quy tắc vận hành phanh khí nén an toàn',
           ],
         },
         practice: {
-          total: '1.000 km thực hành',
+          total: '1.000 km thực hành (DAT)',
           items: [
-            'Lái xe trong sân tập (180 km)',
-            'Lái xe khách đô thị (350 km)',
-            'Lái xe đường dài, đèo núi (380 km)',
-            'Lái xe ban đêm (90 km)',
+            'Thực hành lái xe khách trong sa hình sát hạch',
+            'Chạy DAT đường trường 1000km xe khách ghi nhận định vị',
+            'Kỹ năng căn lề chuẩn khi đón trả khách dừng đỗ',
+            'Lái xe ban đêm và đường đèo nguy hiểm mô phỏng',
           ],
         },
         schedule: [
-          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học lý thuyết chuyên sâu xe khách', 'Kỹ năng phục vụ hành khách', 'Thi sát hạch lý thuyết'] },
-          { phase: 'Giai đoạn 2', duration: '3.5 tháng', content: ['Lái xe khách trong sân tập', 'Lái xe đường dài, qua đèo', 'Thực hành xử lý tình huống sự cố'] },
-          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Ôn tập toàn diện', 'Thi sát hạch thực hành', 'Nhận bằng lái hạng D'] },
+          { phase: 'Giai đoạn 1', duration: '1.5 tháng', content: ['Học luật giao thông & nghiệp vụ vận tải hành khách', 'Kiểm tra kỹ năng phục vụ', 'Thi lấy chứng chỉ tốt nghiệp nghề'] },
+          { phase: 'Giai đoạn 2', duration: '3 tháng', content: ['Học lái xe khách trong sân tập sa hình', 'Chạy đủ 1000km DAT đường trường', 'Luyện tập sa hình cảm biến xe khách hạng D'] },
+          { phase: 'Giai đoạn 3', duration: '0.5 tháng', content: ['Tham dự kỳ thi sát hạch Sở GTVT', 'Nhận bằng lái xe khách hạng D'] },
         ],
       },
 
       documents: [
-        { name: 'CMND/CCCD hoặc Hộ chiếu còn hạn', note: 'Bản photo và bản gốc để đối chiếu' },
-        { name: 'Bằng lái xe hạng C (bản photo)', note: 'Cần đủ 3 năm tính từ ngày cấp bằng C' },
-        { name: '4 ảnh thẻ 3×4 (nền trắng)', note: 'Chụp trong vòng 6 tháng gần đây' },
-        { name: 'Giấy khám sức khỏe đủ điều kiện', note: 'Tại cơ sở y tế được Sở GTVT ủy quyền, kiểm tra thị lực kỹ hơn' },
-        { name: 'Đơn đề nghị học nâng hạng', note: 'Nhận tại văn phòng hoặc tải online' },
-        { name: 'Lệ phí nộp hồ sơ', note: '200.000đ' },
+        { name: '01 Bản photo CCCD còn hạn', note: 'Yêu cầu đủ 24 tuổi trở lên' },
+        { name: '01 Bản photo bằng tốt nghiệp THCS trở lên', note: 'Bắt buộc đối với nâng hạng D (công chứng)' },
+        { name: '01 Bản photo GPLX hiện có (B2 hoặc C)', note: 'Bằng hiện tại đang sử dụng, đủ niên hạn 3-5 năm' },
+        { name: 'Giấy khám sức khỏe lái xe hạng D', note: 'Khám theo đúng mẫu quy định có xét nghiệm chất kích thích' },
       ],
 
       tuition: {
-        basePrice: '16.000.000đ',
+        basePrice: '17.000.000đ',
         options: [
-          { label: 'Học phí trọn gói', price: '16.000.000đ', note: 'Bao gồm toàn bộ chi phí đào tạo và thi sát hạch' },
-          { label: 'Trả góp 0% (8 tháng)', price: '2.000.000đ/tháng', note: 'Qua ngân hàng đối tác, không lãi suất' },
-          { label: 'Nhóm 3 người trở lên', price: '15.200.000đ/người', note: 'Giảm 5% – Liên hệ để được hỗ trợ' },
+          { label: 'Trọn gói nâng hạng từ C', price: '12.000.000đ', note: 'Yêu cầu có bằng C tối thiểu 3 năm và 50.000km lái xe an toàn' },
+          { label: 'Trọn gói nâng hạng từ B2', price: '14.000.000đ', note: 'Yêu cầu có bằng B2 tối thiểu 5 năm và 100.000km lái xe an toàn' },
+          { label: 'Học trực tiếp từ đầu', price: '17.000.000đ', note: 'Chỉ dành cho học viên đủ tuổi và trình độ học vấn theo luật' },
         ],
-        includes: ['Tài liệu học tập chuyên ngành xe khách', 'Phí thi sát hạch lần đầu', 'Phí làm bằng', 'Bảo hiểm thân thể trong quá trình học', 'Khóa học kỹ năng mềm phục vụ hành khách'],
-        note: 'Yêu cầu đã có bằng C tối thiểu 3 năm. Học phí chưa bao gồm phí thi lại nếu có.',
+        includes: ['Tài liệu ôn thi chuyên ngành', 'Phí chạy DAT 1000km xe khách', 'Lệ phí tốt nghiệp chứng chỉ nghề'],
+        note: 'Học viên nộp thêm lệ phí thi sát hạch tại sân thi (khoảng 765.000đ)',
       },
 
       duration: '4.5 – 5.5 tháng',
       passRate: '95%',
-      students: '2.000+',
+      students: '2.500+',
       nextOpen: '01/08/2026',
     },
   ],

@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import {
-  FaCar, FaTruck, FaBus, FaCheckCircle, FaArrowRight, FaArrowLeft,
+  FaCar, FaTruck, FaBus, FaCheckCircle, FaArrowRight,
   FaCalendarAlt, FaClock, FaTrophy, FaUsers, FaPhoneAlt,
   FaGraduationCap, FaShieldAlt, FaRedo, FaHeadset, FaCertificate,
   FaPercent, FaArrowUp, FaTools, FaFirstAid, FaNetworkWired,
   FaGlobe, FaMoneyBillWave, FaRoute, FaBriefcase, FaRoad,
   FaFileAlt, FaChevronDown, FaChevronUp, FaDownload, FaStar,
-  FaFire, FaUserFriends,
+  FaFire, FaUserFriends, FaMotorcycle,
 } from 'react-icons/fa';
 import { coursesPageData } from '../data/coursesData';
 
@@ -18,7 +18,7 @@ const IconMap: Record<string, React.ElementType> = {
   FaRedo, FaHeadset, FaCertificate, FaPercent, FaArrowUp, FaTools,
   FaFirstAid, FaNetworkWired, FaGlobe, FaMoneyBillWave, FaRoute,
   FaBriefcase, FaRoad, FaTrophy, FaFileAlt, FaStar, FaFire,
-  FaUserFriends,
+  FaUserFriends, FaMotorcycle,
 };
 
 // ─── Section Anchor Tabs ───────────────────────────────────────────────────
@@ -65,7 +65,6 @@ const ExpandItem: React.FC<{ label: string; note?: string }> = ({ label, note })
 // ─── Main Component ────────────────────────────────────────────────────────
 const ChiTietKhoaHoc: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('ly-do');
   const [showAllSchedule, setShowAllSchedule] = useState(false);
 
@@ -94,7 +93,7 @@ const ChiTietKhoaHoc: React.FC = () => {
     <div className="overflow-x-hidden pb-24">
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
-      <div className={`relative bg-gradient-to-br ${course.bannerColor} pt-24 pb-14 overflow-hidden`}>
+      <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 pt-24 pb-14 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-80 h-80 bg-white rounded-full -translate-y-1/3 translate-x-1/4" />
           <div className="absolute bottom-0 left-0 w-60 h-60 bg-white rounded-full translate-y-1/3 -translate-x-1/4" />
@@ -122,8 +121,8 @@ const ChiTietKhoaHoc: React.FC = () => {
               className="flex-1"
             >
               {/* Badge */}
-              <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center shadow-2xl mb-6">
-                <span className="text-4xl font-black text-gray-900">{course.badge}</span>
+              <div className="h-20 px-6 bg-white rounded-3xl flex items-center justify-center shadow-2xl mb-6 w-fit min-w-[80px]">
+                <span className={`${course.badge.length > 3 ? 'text-2xl md:text-3xl' : 'text-4xl'} font-black text-gray-900`}>{course.badge}</span>
               </div>
 
               <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3">

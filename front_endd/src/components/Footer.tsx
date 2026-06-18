@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm text-gray-600">
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-primary mt-1" size={16} />
-                <span>Số 123, Đường ABC, P. An Lạc, Q. Bình Tân, TP. Hồ Chí Minh</span>
+                <span>14/4 đường ống nước thô D1800, Tân Hòa, Đông Hòa, Hồ Chí Minh</span>
               </li>
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-primary" size={16} />
@@ -66,14 +66,14 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-primary" size={16} />
-                <a href="mailto:lienhe@antoan.edu.vn" className="hover:text-primary transition-colors">lienhe@antoan.edu.vn</a>
+                <a href="mailto:tttphuong1510@gmail.com" className="hover:text-primary transition-colors">tttphuong1510@gmail.com</a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-500">
-          <p>© 2024 Trung tâm đào tạo lái xe An Toàn. All rights reserved.</p>
+          <p>© 2024 Trung tâm giáo dục nghề nghiệp Phú Giáo. All rights reserved.</p>
         </div>
       </div>
     </footer>

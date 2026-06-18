@@ -2,40 +2,35 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
-  FaArrowRight, FaCalendarAlt, FaCheckCircle, FaClock,
-  FaTrophy, FaUsers, FaPhoneAlt, FaStar, FaSearch,
-  FaFire, FaGraduationCap,
+  FaStar, FaUsers, FaClock, FaPhoneAlt, FaSearch,
+  FaGraduationCap, FaChevronRight, FaCertificate,
+  FaArrowRight,
 } from 'react-icons/fa';
-import { coursesPageData } from '../data/coursesData';
+import { instructorsPageData } from '../data/instructorsData';
 
-const KhoaHoc: React.FC = () => {
-  const { hero, categories, courses } = coursesPageData;
-  const [activeCategory, setActiveCategory] = useState('all');
+const GiangVien: React.FC = () => {
+  const { hero, instructors } = instructorsPageData;
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  const filteredCourses = courses.filter(course => {
-    const matchCategory =
-      activeCategory === 'all' ||
-      (activeCategory === 'moto' && ['A1', 'A'].includes(course.badge)) ||
-      (activeCategory === 'B' && ['B (TĐ)', 'B (SS)'].includes(course.badge)) ||
-      (activeCategory === 'C' && ['C1', 'C'].includes(course.badge)) ||
-      (activeCategory === 'D' && ['D'].includes(course.badge));
-    const matchSearch =
-      searchQuery === '' ||
-      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchCategory && matchSearch;
-  });
+  const filtered = instructors.filter(ins =>
+    searchQuery === '' ||
+    ins.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    ins.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    ins.specialties.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
-  const popularBadges = ['B (SS)', 'C'];
+  const stats = [
+    { icon: FaGraduationCap, value: '50+', label: 'Giảng viên chuyên nghiệp' },
+    { icon: FaUsers, value: '39.000+', label: 'Học viên được đào tạo' },
+    { icon: FaStar, value: '4.9★', label: 'Đánh giá trung bình' },
+  ];
 
   return (
     <div className="flex flex-col gap-0 pb-20 overflow-x-hidden">
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 pt-28 pb-20 overflow-hidden">
-        {/* Animated background blobs */}
         <div className="absolute top-10 right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-10 w-56 h-56 bg-purple-500/10 rounded-full blur-2xl" />
 
@@ -53,7 +48,7 @@ const KhoaHoc: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
               {hero.title}
             </h1>
-            <p className="text-white/70 text-lg max-w-xl mx-auto mb-10">
+            <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10">
               {hero.description}
             </p>
 
@@ -62,7 +57,7 @@ const KhoaHoc: React.FC = () => {
               <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Tìm kiếm khóa học..."
+                placeholder="Tìm kiếm giảng viên, chuyên môn..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-primary focus:bg-white/15 transition-all text-base"
@@ -70,18 +65,14 @@ const KhoaHoc: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Stats Row */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-12"
           >
-            {[
-              { icon: FaGraduationCap, value: '15.000+', label: 'Học viên đã học' },
-              { icon: FaTrophy, value: '98%', label: 'Tỷ lệ đỗ sát hạch' },
-              { icon: FaStar, value: '4.9★', label: 'Đánh giá học viên' },
-            ].map((item, i) => (
+            {stats.map((item, i) => (
               <div key={i} className="text-center bg-white/5 backdrop-blur rounded-2xl py-4 px-2 border border-white/10">
                 <item.icon className="text-primary text-xl mx-auto mb-2" />
                 <div className="text-2xl font-black text-white">{item.value}</div>
@@ -92,126 +83,87 @@ const KhoaHoc: React.FC = () => {
         </div>
       </section>
 
-      {/* ── FILTER CATEGORIES ─────────────────────────────────────── */}
-      <section className="bg-white sticky top-[80px] z-30 shadow-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar">
-            {categories.map(cat => (
-              <button
-                key={cat.value}
-                onClick={() => setActiveCategory(cat.value)}
-                className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  activeCategory === cat.value
-                    ? 'bg-primary text-white shadow-md shadow-primary/30'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── COURSE GRID ───────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        {filteredCourses.length === 0 ? (
+      {/* ── INSTRUCTOR GRID ────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {filtered.length === 0 ? (
           <div className="text-center py-20">
             <FaSearch className="text-5xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 text-lg">Không tìm thấy khóa học phù hợp</p>
+            <p className="text-gray-500 text-lg">Không tìm thấy giảng viên phù hợp</p>
             <button
-              onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
+              onClick={() => setSearchQuery('')}
               className="mt-4 text-primary font-semibold hover:underline"
             >
-              Xem tất cả khóa học
+              Xem tất cả giảng viên
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredCourses.map((course, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filtered.map((ins, i) => (
               <motion.div
-                key={course.id}
+                key={ins.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="group bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-400 hover:-translate-y-1"
               >
-                {/* Card Image */}
-                <div className="relative h-52 overflow-hidden">
+                {/* Card Header / Image */}
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-800 to-blue-900">
                   <img
-                    src={course.heroImage}
-                    alt={course.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    src={ins.image}
+                    alt={ins.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-90"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-r ${course.bannerColor} opacity-75`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
 
-                  {/* Badge */}
-                  <div className="absolute top-4 left-4 h-16 px-4 bg-white rounded-2xl flex items-center justify-center shadow-lg min-w-[64px]">
-                    <span className={`${course.badge.length > 3 ? 'text-lg md:text-xl' : 'text-2xl'} font-black text-gray-800`}>{course.badge}</span>
+                  {/* Rating Badge */}
+                  <div className="absolute top-4 right-4 bg-amber-400 text-slate-900 text-xs font-black px-2.5 py-1.5 rounded-xl flex items-center gap-1 shadow-lg">
+                    <FaStar size={10} /> {ins.rating}
                   </div>
 
-                  {/* Popular Tag */}
-                  {popularBadges.includes(course.badge) && (
-                    <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                      <FaFire size={10} /> Phổ biến
-                    </div>
-                  )}
-
-                  {/* Title overlay */}
+                  {/* Name overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h2 className="text-xl font-bold text-white">{course.name}</h2>
-                    <p className="text-white/80 text-sm mt-1 line-clamp-1">{course.shortDesc}</p>
+                    <h2 className="text-xl font-bold text-white">{ins.name}</h2>
+                    <p className="text-primary/90 text-sm font-medium mt-0.5">{ins.title}</p>
                   </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-6">
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-3 mb-5">
+                  {/* Stats row */}
+                  <div className="grid grid-cols-2 gap-3 mb-5">
                     {[
-                      { icon: FaClock, label: 'Thời gian', value: course.duration },
-                      { icon: FaTrophy, label: 'Tỷ lệ đỗ', value: course.passRate },
-                      { icon: FaUsers, label: 'Học viên', value: course.students },
+                      { icon: FaClock, label: 'Kinh nghiệm', value: ins.experience },
+                      { icon: FaUsers, label: 'Học viên', value: ins.students.replace('Hơn ', '').replace(' đã đào tạo', '') },
                     ].map((stat, j) => (
                       <div key={j} className="text-center bg-gray-50 rounded-xl py-2.5 px-2">
                         <stat.icon className="text-primary mx-auto mb-1 text-sm" />
                         <div className="text-xs text-gray-500">{stat.label}</div>
-                        <div className="text-sm font-bold text-gray-800">{stat.value}</div>
+                        <div className="text-xs font-bold text-gray-800 mt-0.5">{stat.value}</div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Price */}
-                  <div className="flex items-center justify-between mb-5 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
-                    <div>
-                      <div className="text-xs text-gray-500 mb-0.5">Học phí trọn gói</div>
-                      <div className="text-2xl font-black text-primary">{course.tuition.basePrice}</div>
+                  {/* Specialties */}
+                  <div className="mb-5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
+                      <FaCertificate className="text-primary" /> Chuyên môn
                     </div>
-                    <div className="text-right">
-                      <div className="text-xs text-gray-500 mb-0.5">Khai giảng tiếp theo</div>
-                      <div className="flex items-center gap-1.5 text-green-600 font-semibold text-sm">
-                        <FaCalendarAlt />
-                        {course.nextOpen}
-                      </div>
-                    </div>
+                    <ul className="space-y-1">
+                      {ins.specialties.slice(0, 2).map((sp, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
+                          <FaChevronRight className="text-primary flex-shrink-0 text-xs mt-1" />
+                          <span className="line-clamp-1">{sp}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Quick Highlights */}
-                  <ul className="space-y-1.5 mb-6">
-                    {course.tuition.includes.slice(0, 3).map((item, j) => (
-                      <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                        <FaCheckCircle className="text-green-500 flex-shrink-0 text-xs" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Actions */}
-                  <div className="relative z-10 flex gap-3">
+                  {/* Action buttons */}
+                  <div className="flex gap-3">
                     <button
                       type="button"
-                      onClick={() => navigate(`/khoa-hoc/${course.id}`)}
+                      onClick={() => navigate(`/giang-vien/${ins.id}`)}
                       className="flex-1 touch-manipulation bg-primary hover:bg-secondary text-white text-center py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/30"
                     >
                       Xem chi tiết <FaArrowRight size={12} />
@@ -244,10 +196,10 @@ const KhoaHoc: React.FC = () => {
           </div>
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
-              Chưa biết nên chọn hạng bằng nào?
+              Muốn học trực tiếp với giảng viên yêu thích?
             </h2>
             <p className="text-white/80 mb-7 max-w-xl mx-auto">
-              Gọi ngay để được tư vấn miễn phí – Chúng tôi sẽ giúp bạn chọn khóa học phù hợp nhất!
+              Liên hệ ngay để được tư vấn và đăng ký khóa học với giảng viên phù hợp!
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
@@ -270,4 +222,4 @@ const KhoaHoc: React.FC = () => {
   );
 };
 
-export default KhoaHoc;
+export default GiangVien;
