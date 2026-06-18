@@ -1,0 +1,493 @@
+# SYSTEM PROMPT: THIẾT KẾ WEBSITE TRUNG TÂM ĐÀO TẠO LÁI XE CHUYÊN NGHIỆP
+
+Thiết kế và xây dựng hoàn chỉnh một website giới thiệu Trung tâm Đào tạo Lái xe hiện đại bằng React.js.
+
+## MỤC TIÊU
+
+Tạo giao diện chuyên nghiệp, uy tín, hiện đại, thân thiện với người dùng, tối ưu trải nghiệm đăng ký khóa học lái xe.
+
+Phong cách tương tự các website giáo dục cao cấp, trung tâm đào tạo chuyên nghiệp.
+
+## CÔNG NGHỆ
+
+* React.js 18+
+* React Router DOM
+* Tailwind CSS
+* Framer Motion
+* React Icons
+* SwiperJS
+* AOS Animation
+* Axios
+* React Hook Form
+* Responsive Design
+* Dark Mode Ready
+
+## THIẾT KẾ
+
+### Màu sắc
+
+Primary:
+
+* #2563EB
+
+Secondary:
+
+* #3B82F6
+
+Accent:
+
+* #F59E0B
+
+Success:
+
+* #10B981
+
+Background:
+
+* #F8FAFC
+
+Text:
+
+* #0F172A
+
+### Font
+
+Google Fonts:
+
+* Inter
+  hoặc
+* Be Vietnam Pro
+
+### Phong cách
+
+* Modern UI
+* Clean Design
+* Soft Shadow
+* Rounded Corner (16px-24px)
+* Glassmorphism nhẹ
+* White Space rộng rãi
+* Card Layout
+* Hero Section lớn
+* CTA nổi bật
+
+---
+
+# RESPONSIVE
+
+Thiết kế đầy đủ:
+
+Desktop:
+
+* 1440px+
+
+Laptop:
+
+* 1024px
+
+Tablet:
+
+* 768px
+
+Mobile:
+
+* 375px
+
+Menu mobile dạng Drawer.
+
+---
+
+# HIỆU ỨNG
+
+Sử dụng Framer Motion cho:
+
+* Fade In
+* Slide Up
+* Slide Left
+* Slide Right
+* Scale
+* Hover Card
+* Hover Button
+* Number Counter
+* Scroll Reveal
+* Page Transition
+
+Hiệu ứng mượt 60fps.
+
+Duration:
+0.4s - 0.8s
+
+---
+
+# CẤU TRÚC WEBSITE
+
+## 1. TRANG CHỦ
+
+### Hero Section
+
+Bên trái:
+
+* Tiêu đề lớn
+* Mô tả
+* CTA Đăng ký ngay
+* CTA Xem khóa học
+
+Bên phải:
+
+* Hình xe tập lái
+* Background thành phố hiện đại
+
+Animation:
+
+* Floating Image
+* Fade In Content
+
+---
+
+### Thống kê
+
+* 15.000+ Học viên
+* 10+ Năm kinh nghiệm
+* 98% Đỗ sát hạch
+* 120+ Xe tập lái
+
+Counter Animation.
+
+---
+
+### Khóa học nổi bật
+
+Card:
+
+* B1
+* B2
+* C
+* D
+
+Thông tin:
+
+* Giá
+* Thời gian học
+* Mô tả ngắn
+
+Hover:
+
+* Scale 1.03
+* Shadow nâng cao
+
+---
+
+### Giảng viên tiêu biểu
+
+Carousel Slider.
+
+Mỗi giảng viên gồm:
+
+* Ảnh
+* Họ tên
+* Chứng chỉ
+* Kinh nghiệm
+* Đánh giá
+
+---
+
+### Lý do chọn chúng tôi
+
+Icon + nội dung.
+
+6 điểm mạnh:
+
+* Học phí minh bạch
+* Xe đời mới
+* Giáo viên kinh nghiệm
+* Tỷ lệ đỗ cao
+* Hỗ trợ tận tâm
+* Học linh hoạt
+
+---
+
+### Thông báo tuyển sinh
+
+Card timeline:
+
+* Ngày khai giảng
+* Ưu đãi
+* Số lượng còn nhận
+
+---
+
+### Đánh giá học viên
+
+Slider.
+
+Hiển thị:
+
+* Avatar
+* Họ tên
+* Đánh giá sao
+* Nội dung
+
+Hiệu ứng:
+Auto Play.
+
+---
+
+### CTA Cuối Trang
+
+Banner lớn:
+
+"Đăng ký học lái xe ngay hôm nay"
+
+Button:
+
+* Đăng ký tư vấn
+
+---
+
+## 2. TRANG GIỚI THIỆU
+
+### Banner
+
+Ảnh trung tâm.
+
+### Giới thiệu
+
+* Lịch sử hình thành
+* Sứ mệnh
+* Tầm nhìn
+* Giá trị cốt lõi
+
+### Thành tựu
+
+Timeline Animation.
+
+### Cơ sở vật chất
+
+Gallery Masonry.
+
+### Đội ngũ
+
+Grid giảng viên.
+
+### Chứng nhận
+
+Logo và giấy phép.
+
+---
+
+## 3. TRANG KHÓA HỌC
+
+Danh sách khóa học.
+
+Filter:
+
+* B1
+* B2
+* C
+* D
+
+Mỗi khóa học:
+
+* Hình ảnh
+* Học phí
+* Lịch học
+* Nội dung
+* Điều kiện đăng ký
+
+Nút:
+
+* Đăng ký ngay
+
+---
+
+## 4. CHI TIẾT KHÓA HỌC
+
+Bao gồm:
+
+* Giới thiệu
+* Giá
+* Thời gian học
+* Lộ trình
+* FAQ
+* Form đăng ký
+
+Accordion Animation.
+
+---
+
+## 5. TRANG GIẢNG VIÊN
+
+Grid Card.
+
+Thông tin:
+
+* Ảnh
+* Họ tên
+* Chức vụ
+* Chứng chỉ
+* Số năm kinh nghiệm
+* Đánh giá
+
+Tìm kiếm giảng viên.
+
+---
+
+## 6. LỊCH HỌC
+
+Calendar View.
+
+Hiển thị:
+
+* Khóa học
+* Ngày khai giảng
+* Ca học
+* Giảng viên
+
+Filter theo khóa.
+
+---
+
+## 7. TIN TỨC
+
+Danh sách bài viết.
+
+Layout:
+
+Featured News
+
+*
+
+News Grid
+
+Phân loại:
+
+* Tuyển sinh
+* Kinh nghiệm thi
+* Mẹo lái xe
+* Thông báo
+
+---
+
+## 8. CHI TIẾT TIN TỨC
+
+* Hero Banner
+* Nội dung
+* Mục lục
+* Chia sẻ mạng xã hội
+* Tin liên quan
+
+---
+
+## 9. THƯ VIỆN HÌNH ẢNH
+
+Gallery.
+
+Lightbox.
+
+Animation Zoom.
+
+---
+
+## 10. LIÊN HỆ
+
+Thông tin:
+
+* Địa chỉ
+* Hotline
+* Email
+
+Google Maps.
+
+Form:
+
+* Họ tên
+* Số điện thoại
+* Khóa học quan tâm
+* Nội dung
+
+Validation đầy đủ.
+
+---
+
+## 11. TRANG ĐĂNG KÝ TƯ VẤN
+
+Form chuyên nghiệp.
+
+Các trường:
+
+* Họ tên
+* Số điện thoại
+* Email
+* Khóa học
+* Ngày mong muốn học
+
+---
+
+# HEADER
+
+Sticky Header.
+
+Bao gồm:
+
+* Logo
+* Menu
+* Hotline
+* Nút Đăng ký
+
+Hiệu ứng khi scroll:
+
+* Thu nhỏ chiều cao
+* Blur Background
+
+---
+
+# FOOTER
+
+4 cột:
+
+* Giới thiệu
+* Liên kết nhanh
+* Khóa học
+* Liên hệ
+
+Mạng xã hội:
+
+* Facebook
+* Youtube
+* TikTok
+* Zalo
+
+---
+
+# SEO
+
+Tối ưu:
+
+* Meta Title
+* Meta Description
+* Open Graph
+* Schema.org
+
+---
+
+# HIỆU SUẤT
+
+* Lazy Loading
+* Image Optimization
+* Code Splitting
+* SEO Friendly
+* Accessibility WCAG
+
+---
+
+# OUTPUT
+
+Tạo:
+
+* Full UI Design
+* Component Structure
+* Folder Structure
+* React Pages
+* Reusable Components
+* Responsive Layout
+* Animation Configuration
+* Production Ready Code
